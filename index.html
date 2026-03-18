@@ -117,6 +117,7 @@
         .tag-family  { background: #dbeafe; color: #1e40af; }
         .tag-indoor  { background: #fff7ed; color: #c2410c; }
         .tag-free    { background: #d1fae5; color: #065f46; }
+        .tag-cycling { background: #ede9fe; color: #5b21b6; }
         .popup-tip {
             background: #f0f9ff;
             border-radius: 0 0 12px 12px;
@@ -138,6 +139,7 @@
         <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div> NYC</div>
         <div class="legend-item"><div class="legend-dot" style="background:#16a34a"></div> Poconos</div>
         <div class="legend-item"><div class="legend-dot" style="background:#ea580c"></div> Ardmore / Philly</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7c3aed"></div> Cycling</div>
         <div class="legend-item" style="color:#9ca3af; font-style:italic;">Click markers for details</div>
     </div>
 </div>
@@ -181,6 +183,7 @@ const NYC = '#3b82f6';
 const POC = '#16a34a';
 const PHI = '#ea580c';
 const RED = '#dc2626';
+const CYC = '#7c3aed';
 
 
 // ─── Popup Builder ────────────────────────────────────────────────────────────
@@ -433,6 +436,117 @@ L.marker([40.6887, -75.2109], { icon: sm(POC,'🖍️') }).addTo(map)
 
 
 // ══════════════════════════════════════════════════════════════════════════════
+// CYCLING — TRAILS & BIKE RENTALS (POCONOS)
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Trail: Lehigh Gorge Trail (White Haven → Jim Thorpe, ~26 miles)
+const lehighGorgeTrail = [
+    [41.059, -75.776],
+    [41.040, -75.779],
+    [41.020, -75.775],
+    [40.999, -75.770],
+    [40.978, -75.762],
+    [40.956, -75.750],
+    [40.934, -75.740],
+    [40.910, -75.733],
+    [40.876, -75.731],
+];
+L.polyline(lehighGorgeTrail, { color: CYC, weight: 5, opacity: 0.85 })
+    .addTo(map)
+    .bindTooltip('🚴 Lehigh Gorge Trail — 26 miles, crushed gravel, gentle 2% downhill<br>White Haven → Jim Thorpe · Perfect for gravel bikes!', { sticky: true });
+
+// Trail: D&L Black Diamond Trail (Glen Summit → White Haven, ~10 miles)
+const blackDiamondTrail = [
+    [41.114, -75.797],
+    [41.095, -75.790],
+    [41.075, -75.784],
+    [41.059, -75.776],
+];
+L.polyline(blackDiamondTrail, { color: CYC, weight: 4, opacity: 0.7, dashArray: '7 5' })
+    .addTo(map)
+    .bindTooltip('🚴 D&L Black Diamond Trail — 10 miles, crushed gravel<br>Combine with Lehigh Gorge for a 36-mile day!', { sticky: true });
+
+// White Haven Trailhead (north end of Lehigh Gorge Trail)
+L.marker([41.059, -75.776], { icon: sm(CYC,'🚴') }).addTo(map)
+    .bindTooltip('<b>Lehigh Gorge Trail — White Haven Trailhead (North End)</b>')
+    .bindPopup(popup(CYC,'🚴','Lehigh Gorge Trail — White Haven Trailhead',
+        'North end — start here to ride 26 miles DOWNHILL to Jim Thorpe!',
+        ['⭐ Crushed quartzite gravel — <b>ideal for gravel bikes</b> (35-45mm tyres)',
+         'Net 600ft drop with a gentle 2% grade — a real reward ride',
+         'Rockport midpoint (13 miles) has water refill + toilets',
+         'No other services on trail — carry food, tools and spare tube',
+         'Late March condition: crushed gravel drains fast, likely rideable',
+         'Combine with D&L Black Diamond Trail for a 36-mile mega day'],
+        [['tag-cycling','🚴 Dad\'s top ride!'],['tag-free','🆓 Free trail']],
+        '🌐 <a href="https://poconobiking.com/the-trail/full-gorge-25-miles/" target="_blank" style="color:#5b21b6">poconobiking.com — full trail info</a>'));
+
+// Jim Thorpe — south end / Glen Onoko cycling access
+L.marker([40.874, -75.742], { icon: sm(CYC,'🚴') }).addTo(map)
+    .bindTooltip('<b>Lehigh Gorge Trail — Jim Thorpe South End (Glen Onoko)</b>')
+    .bindPopup(popup(CYC,'🚴','Lehigh Gorge Trail — Jim Thorpe South End',
+        'South end — Glen Onoko Access, Jim Thorpe',
+        ['Park here, shuttle to White Haven, ride 26 miles back downhill',
+         'Municipal parking: 1 Susquehanna St, Jim Thorpe (~$8)',
+         'Or start here and ride north — sustained effort but not steep',
+         'Combine the ride with lunch and a walk around Jim Thorpe town',
+         'Lehigh Gorge Scenic Railway Bike Train (May–Sep) also departs here'],
+        [['tag-cycling','🚴 Trail south end']],
+        '🌐 <a href="https://www.lgsry.com/biketrains" target="_blank" style="color:#5b21b6">lgsry.com — Bike Train info (May–Sep)</a>'));
+
+// Peterson's Ski & Cycle — Blakeslee (~10 min from Albrightsville — CLOSEST!)
+L.marker([41.049, -75.529], { icon: sm(CYC,'🏪') }).addTo(map)
+    .bindTooltip('<b>Peterson\'s Ski & Cycle</b> — Closest bike shop (~10 min from your accommodation!)')
+    .bindPopup(popup(CYC,'🏪','Peterson\'s Ski & Cycle — Blakeslee',
+        '~10 min from Albrightsville — CLOSEST shop to your base!',
+        ['Mountain bikes, comfort hybrids + Trek dealer',
+         'Rentals from <b>$35/day</b> · 2 days $60 · weekly $112',
+         '⭐ <b>Bike delivery to your accommodation</b> ($25 first bike)',
+         'Ask staff for their <b>unpublished local road & gravel routes</b> — invaluable local knowledge',
+         'Ask about nearby State Game Lands gravel access roads too'],
+        [['tag-cycling','🚴 Bike Rentals'],['tag-cycling','🗺️ Local route advice']],
+        '📞 (570) 646-9223 · <a href="https://www.petersonsskiandcycle.com/" target="_blank" style="color:#5b21b6">petersonsskiandcycle.com</a>'));
+
+// Pocono Biking — White Haven (rental + shuttle for Lehigh Gorge)
+L.marker([41.063, -75.769], { icon: sm(CYC,'🏪') }).addTo(map)
+    .bindTooltip('<b>Pocono Biking</b> — Bike rental + Lehigh Gorge shuttle — White Haven')
+    .bindPopup(popup(CYC,'🏪','Pocono Biking — White Haven & Jim Thorpe',
+        'At the trailhead — rental AND shuttle in one package!',
+        ['Trek hybrid, comfort bikes + electric e-bikes',
+         'Rentals from <b>$35/day</b>',
+         '⭐ <b>VIP Shuttle package</b> — shuttle to White Haven, cycle 26 miles back — $50',
+         'Also located in Jim Thorpe at the south trailhead',
+         'Call ahead to confirm April opening hours'],
+        [['tag-cycling','🚴 Rentals + Shuttle']],
+        '📞 (570) 325-3656 · <a href="https://poconobiking.com/" target="_blank" style="color:#5b21b6">poconobiking.com</a>'));
+
+// Pocono Bike Rental — White Haven (VIP shuttle service)
+L.marker([41.055, -75.782], { icon: sm(CYC,'🏪') }).addTo(map)
+    .bindTooltip('<b>Pocono Bike Rental</b> — VIP Shuttle + bike hire — White Haven')
+    .bindPopup(popup(CYC,'🏪','Pocono Bike Rental — White Haven & Jim Thorpe',
+        'Shuttle-based rentals for the Lehigh Gorge Trail',
+        ['Mountain bikes and comfort bikes for rent',
+         'Rentals from <b>$35/day</b>',
+         '⭐ <b>VIP Shuttle</b> to White Haven so you ride 26 miles back to Jim Thorpe',
+         'Also at Jim Thorpe Glen Onoko access (south end)',
+         'Book in advance — spring break period gets busy'],
+        [['tag-cycling','🚴 Rentals + Shuttle']],
+        '📞 (570) 899-0400 · <a href="https://poconobikerental.com/" target="_blank" style="color:#5b21b6">poconobikerental.com</a>'));
+
+// Lehighton Outdoor Center — Specialized bikes + shuttle
+L.marker([40.834, -75.714], { icon: sm(CYC,'🏪') }).addTo(map)
+    .bindTooltip('<b>Lehighton Outdoor Center</b> — Specialized bikes for D&L Trail')
+    .bindPopup(popup(CYC,'🏪','Lehighton Outdoor Center — Lehighton PA',
+        '~20–25 min from Albrightsville · on the D&L Trail',
+        ['Specialized hybrid + electric pedal-assist bikes',
+         'Rentals from <b>$30/day</b> — includes helmet & water bottle',
+         'One-way shuttle to D&L Trail access points ($23.95/person)',
+         'Well-positioned for lower Lehigh Gorge and D&L Trail sections',
+         '⭐ Also rents kayaks & paddleboards — great family add-on!'],
+        [['tag-cycling','🚴 Bike Rentals + Shuttle'],['tag-family','👨‍👩‍👧‍👦 Kayaks too!']],
+        '📞 (610) 377-1230 · <a href="https://lehightonoutdoorcenter.com/bike-rentals/" target="_blank" style="color:#5b21b6">lehightonoutdoorcenter.com</a>'));
+
+
+// ══════════════════════════════════════════════════════════════════════════════
 // DRIVE ROUTE 2: Albrightsville → Ardmore
 // ══════════════════════════════════════════════════════════════════════════════
 const route2 = [
@@ -568,6 +682,7 @@ legend.onAdd = function() {
             <div>⚽ = Great for Sam (17)</div>
             <div>📣 = Great for Ella (11)</div>
             <div>👨‍👩‍👧‍👦 = Whole family</div>
+            <div>🚴 = Cycling trails &amp; bike rentals</div>
             <div>☔ = Rainy day option</div>
             <div>🆓 = Free entry</div>
         </div>
