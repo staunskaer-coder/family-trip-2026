@@ -126,6 +126,12 @@
             color: #0369a1;
             border-top: 1px solid #e0f2fe;
         }
+        .leaflet-popup-content a {
+            color: #0369a1;
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -133,13 +139,14 @@
 <div id="header">
     <div>
         <h1>✈️ Family USA Road Trip — Spring 2026</h1>
-        <div class="subtitle">NYC (19–23 Mar) &rarr; Pocono Mountains (23 Mar–2 Apr) &rarr; Ardmore / Philadelphia (2 Apr+)</div>
+        <div class="subtitle">NYC (26–29 Mar) &rarr; Pocono Mountains (29 Mar–2 Apr) &rarr; Ardmore (2–3 Apr) &rarr; King of Prussia (3–4 Apr)</div>
     </div>
     <div class="legend-bar">
         <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div> NYC</div>
         <div class="legend-item"><div class="legend-dot" style="background:#16a34a"></div> Poconos</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ea580c"></div> Ardmore / Philly</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ea580c"></div> Ardmore / KOP</div>
         <div class="legend-item"><div class="legend-dot" style="background:#7c3aed"></div> Cycling</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#e50914"></div> Netflix House</div>
         <div class="legend-item" style="color:#9ca3af; font-style:italic;">Click markers for details</div>
     </div>
 </div>
@@ -206,9 +213,9 @@ function popup(headerColor, icon, title, dates, bullets, tags, tip) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 L.marker([40.7205, -73.9933], { icon: pinIcon(NYC,'🏨',44) }).addTo(map)
-    .bindTooltip('<b>Moxy Lower East Side</b><br>Home Base NYC · Thu 19 – Mon 23 Mar', {direction:'top'})
+    .bindTooltip('<b>Moxy Lower East Side</b><br>Home Base NYC · Thu 26 – Sun 29 Mar', {direction:'top'})
     .bindPopup(popup(NYC,'🏨','Moxy Lower East Side, NYC',
-        'Thu 19 March – Mon 23 March (4 nights)',
+        'Thu 26 March – Sun 29 March (3 nights)',
         ['Your NYC base — brilliantly located in the Lower East Side',
          '<b>5 min walk:</b> Katz\'s Deli, Russ & Daughters, Essex Market',
          '<b>15 min walk:</b> Chinatown, Little Italy',
@@ -219,7 +226,7 @@ L.marker([40.7205, -73.9933], { icon: pinIcon(NYC,'🏨',44) }).addTo(map)
 L.marker([40.7061, -73.9969], { icon: sm(NYC,'🌉') }).addTo(map)
     .bindTooltip('<b>Brooklyn Bridge Walk</b> — FREE')
     .bindPopup(popup(NYC,'🌉','Brooklyn Bridge + DUMBO',
-        'Recommended: Friday 20 March morning',
+        'Recommended: Friday 27 March morning',
         ['Walk the full bridge (~40 min) — FREE, stunning views',
          'DUMBO neighbourhood — Jane\'s Carousel under the bridge',
          'Brooklyn Bridge Park waterfront — iconic NYC photo spot',
@@ -230,7 +237,7 @@ L.marker([40.7061, -73.9969], { icon: sm(NYC,'🌉') }).addTo(map)
 L.marker([40.7480, -74.0048], { icon: sm(NYC,'🌿') }).addTo(map)
     .bindTooltip('<b>The High Line</b> — Free elevated park')
     .bindPopup(popup(NYC,'🌿','The High Line + Chelsea Market',
-        'Recommended: Friday 20 March afternoon',
+        'Recommended: Friday 27 March afternoon',
         ['1.45-mile elevated park on a former rail line — FREE',
          'Great city views, public art, outdoor plantings',
          '<b>Chelsea Market</b> below — world-famous food hall',
@@ -241,7 +248,7 @@ L.marker([40.7480, -74.0048], { icon: sm(NYC,'🌿') }).addTo(map)
 L.marker([40.7851, -73.9683], { icon: sm(NYC,'🌳') }).addTo(map)
     .bindTooltip('<b>Central Park</b>')
     .bindPopup(popup(NYC,'🌳','Central Park',
-        'Recommended: Saturday 21 March morning',
+        'Recommended: Saturday 28 March morning',
         ['Rent bikes or e-bikes at the south entrance',
          'Bethesda Fountain, Bow Bridge, Belvedere Castle',
          'The Carousel & Strawberry Fields',
@@ -253,58 +260,58 @@ L.marker([40.7851, -73.9683], { icon: sm(NYC,'🌳') }).addTo(map)
 L.marker([40.7813, -73.9740], { icon: sm(NYC,'🦕') }).addTo(map)
     .bindTooltip('<b>American Museum of Natural History</b>')
     .bindPopup(popup(NYC,'🦕','American Museum of Natural History',
-        'Recommended: Saturday 21 March afternoon',
+        'Recommended: Saturday 28 March afternoon',
         ['World-famous dinosaur halls — T-Rex, Triceratops & more',
          'Hayden Planetarium — book a space show in advance',
          'Blue whale model in the Ocean Life hall',
          'Budget 3–4 hours. Take B/C to 81st St.'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-cheer','📣 Ella loves it']],
-        '🎟️ Book timed entry tickets online in advance'));
+        '🎟️ Book timed entry at <a href="https://www.amnh.org/" target="_blank">amnh.org</a> in advance'));
 
 L.marker([40.7587, -73.9787], { icon: sm(NYC,'🗼') }).addTo(map)
     .bindTooltip('<b>Top of the Rock</b> — Best NYC skyline views')
     .bindPopup(popup(NYC,'🗼','Top of the Rock — Rockefeller Center',
-        'Recommended: Sunday 22 March',
+        'Recommended: Sunday 29 March morning (before drive)',
         ['Best NYC views — Empire State Building IN the skyline',
          '30 Rock building, NBC Studios tours',
          '5th Avenue shopping a short walk away',
          'Book skip-the-line timed tickets online'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-cheer','📣 Ella']],
-        '🎟️ Book at topoftherocknyc.com'));
+        '🎟️ Book at <a href="https://www.topoftherocknyc.com/" target="_blank">topoftherocknyc.com</a>'));
 
 L.marker([40.7590, -73.9850], { icon: sm(NYC,'🎭') }).addTo(map)
     .bindTooltip('<b>Broadway Theatre District</b> — Book ahead!')
     .bindPopup(popup(NYC,'🎭','Broadway Shows — Times Square',
-        'Recommended: Sunday 22 March matinee',
+        'Recommended: Saturday 28 March matinee',
         ['⭐ <b>Wicked</b> (Gershwin Theatre) — TOP pick for Ella!',
          '🦁 <b>The Lion King</b> (Minskoff) — spectacular staging',
          '🧞 <b>Aladdin</b> (New Amsterdam) — Disney magic',
          '🎤 <b>Hamilton</b> — extraordinary for the whole family',
          'TKTS booth at Times Square for same-day discounts'],
         [['tag-cheer','📣 Ella\'s HIGHLIGHT!'],['tag-family','👨‍👩‍👧‍👦 Whole Family']],
-        '🎟️ Book NOW at broadway.com — shows sell out weeks ahead!'));
+        '🎟️ Book NOW at <a href="https://www.broadway.com/" target="_blank">broadway.com</a> — shows sell out weeks ahead!'));
 
 L.marker([40.7368, -74.1502], { icon: sm(RED,'⚽') }).addTo(map)
     .bindTooltip('<b>Red Bull Arena</b> — NY Red Bulls MLS ⚽')
     .bindPopup(popup(RED,'⚽','Red Bull Arena — NY Red Bulls MLS',
-        'Check schedule: Sat 21 or Sun 22 March',
+        'Check schedule: Sat 28 March',
         ['Purpose-built soccer stadium — 25,000 seats',
          'Excellent atmosphere and close-up sightlines',
          'Easy via PATH train from World Trade Center (~20 min)',
          '<b>Check for home games this weekend!</b>'],
-        [['tag-soccer','⚽ ETHAN\'S HIGHLIGHT!'],['tag-family','👨‍👩‍👧‍👦 Great for all']],
-        '🎟️ newyorkredbulls.com/schedule — Harrison, NJ'));
+        [['tag-soccer','⚽ SAM\'S HIGHLIGHT!'],['tag-family','👨‍👩‍👧‍👦 Great for all']],
+        '🎟️ <a href="https://www.newyorkredbulls.com/schedule" target="_blank">newyorkredbulls.com/schedule</a> — Harrison, NJ'));
 
 L.marker([40.8296, -73.9262], { icon: sm('#1d4ed8','⚽') }).addTo(map)
     .bindTooltip('<b>Yankee Stadium</b> — NYCFC MLS')
     .bindPopup(popup('#1d4ed8','⚽','Yankee Stadium — NYCFC MLS',
-        'Check schedule: weekend 21–22 March',
+        'Check schedule: Sat 28 March',
         ['NYCFC home games at Yankee Stadium',
          'Good alternative if no Red Bulls home match',
          'Take 4 train to 161st St, Bronx',
          'Passionate home support'],
         [['tag-soccer','⚽ Great for Sam']],
-        '🎟️ nycfc.com/schedule'));
+        '🎟️ <a href="https://www.nycfc.com/schedule" target="_blank">nycfc.com/schedule</a>'));
 
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -328,7 +335,7 @@ L.polyline(route1, { color: POC, weight: 4, opacity: 0.65, dashArray: '8 5' })
 L.marker([40.9612, -75.1347], { icon: sm(POC,'🏔️') }).addTo(map)
     .bindTooltip('<b>Delaware Water Gap</b> — Scenic stop on the drive!')
     .bindPopup(popup(POC,'🏔️','Delaware Water Gap — Stop on the Drive!',
-        'Monday 23 March — stretch your legs!',
+        'Sunday 29 March — stretch your legs!',
         ['Beautiful river gorge crossing on I-80',
          'Free pull-offs on the PA side for photos',
          'First look at the Pocono Mountains',
@@ -342,9 +349,9 @@ L.marker([40.9612, -75.1347], { icon: sm(POC,'🏔️') }).addTo(map)
 // ══════════════════════════════════════════════════════════════════════════════
 
 L.marker([41.0626, -75.5474], { icon: pinIcon(POC,'🏡',44) }).addTo(map)
-    .bindTooltip('<b>Albrightsville, PA</b><br>Home Base Poconos · Mon 23 Mar – Thu 2 Apr', {direction:'top'})
+    .bindTooltip('<b>Albrightsville, PA</b><br>Home Base Poconos · Sat 29 Mar – Thu 2 Apr', {direction:'top'})
     .bindPopup(popup(POC,'🏡','Albrightsville, PA — Pocono Mountains',
-        'Mon 23 March – Thu 2 April (10 nights)',
+        'Sat 29 March – Thu 2 April (4 nights)',
         ['Your Pocono Mountains base — central for all activities',
          '<b>20 min:</b> Hickory Run State Park',
          '<b>35 min:</b> Jim Thorpe, Lehigh Gorge',
@@ -356,7 +363,7 @@ L.marker([41.0626, -75.5474], { icon: pinIcon(POC,'🏡',44) }).addTo(map)
 L.marker([41.0268, -75.7109], { icon: sm(POC,'🪨') }).addTo(map)
     .bindTooltip('<b>Hickory Run State Park</b> — Boulder Field')
     .bindPopup(popup(POC,'🪨','Hickory Run State Park — Boulder Field',
-        'Open year-round — Recommended: Tue 24 March',
+        'Open year-round — Recommended: Mon 30 March',
         ['⭐ <b>Boulder Field</b> — car-sized glacial boulders, a National Natural Landmark',
          'Flat, treeless field — utterly surreal. ~1 mile trail each way',
          'Free entry, suitable for all ages and fitness levels',
@@ -367,7 +374,7 @@ L.marker([41.0268, -75.7109], { icon: sm(POC,'🪨') }).addTo(map)
 L.marker([40.8762, -75.7307], { icon: sm(POC,'🏘️') }).addTo(map)
     .bindTooltip('<b>Jim Thorpe</b> — "Switzerland of Pennsylvania"')
     .bindPopup(popup(POC,'🏘️','Jim Thorpe, PA — Victorian Mountain Town',
-        'Recommended: Wed 25 March (full day)',
+        'Recommended: Tue 31 March (full day)',
         ['Beautifully preserved Victorian coal-era town in a river gorge',
          'Walk <b>Broadway Street</b> — independent shops, cafes, restaurants',
          '<b>Old Jail Museum</b> — legendary handprint on the wall!',
@@ -375,7 +382,7 @@ L.marker([40.8762, -75.7307], { icon: sm(POC,'🏘️') }).addTo(map)
          '<b>Lehigh Gorge Trail</b> — hiking & cycling along the river',
          'Whitewater rafting may be available by April'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-soccer','⚽ Active'],['tag-cheer','📣 Great shopping']],
-        '🌐 jimthorpe.org · Call ahead to verify museum hours'));
+        '🌐 <a href="https://www.jimthorpe.org/" target="_blank">jimthorpe.org</a> · Call ahead to verify museum hours'));
 
 L.marker([41.0637, -75.0065], { icon: sm(POC,'💧') }).addTo(map)
     .bindTooltip('<b>Bushkill Falls</b> — "Niagara of Pennsylvania" — Call ahead!')
@@ -386,19 +393,19 @@ L.marker([41.0637, -75.0065], { icon: sm(POC,'💧') }).addTo(map)
          'Main falls trail ~1–1.5 hours round trip',
          'Spectacular with spring snowmelt! Extra powerful in late March'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-cheer','📣 Ella will love it']],
-        '📞 Call ahead: (570) 588-6682 · bushkillfalls.com'));
+        '📞 Call ahead: (570) 588-6682 · <a href="https://www.bushkillfalls.com/" target="_blank">bushkillfalls.com</a>'));
 
 L.marker([41.0100, -74.9800], { icon: sm(POC,'🌊') }).addTo(map)
     .bindTooltip('<b>Delaware Water Gap NRA</b> — Dingmans & Raymondskill Falls')
     .bindPopup(popup(POC,'🌊','Delaware Water Gap NRA — Waterfalls',
-        'Open year-round — FREE · Recommended: Thu 26 March',
+        'Open year-round — FREE · Recommended: Wed 1 April',
         ['⭐ <b>Dingmans Falls</b> — one of the tallest free-falling falls in the East',
          'Easy 0.5 mile boardwalk trail — suitable for absolutely everyone',
          '<b>Raymondskill Falls</b> — tallest waterfall in Pennsylvania',
          '<b>Silverthread Falls</b> — beautiful narrow chute of water',
          'Even more spectacular with spring snowmelt flow!'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-free','🆓 Free Entry']],
-        '🌐 nps.gov/dewa'));
+        '🌐 <a href="https://www.nps.gov/dewa" target="_blank">nps.gov/dewa</a>'));
 
 L.marker([41.1418, -75.4412], { icon: sm('#f97316','🌊') }).addTo(map)
     .bindTooltip('<b>Kalahari Indoor Waterpark</b> — Best rainy day option!')
@@ -410,7 +417,7 @@ L.marker([41.1418, -75.4412], { icon: sm('#f97316','🌊') }).addTo(map)
          'Perfect for both Sam (17) AND Ella (11)',
          '<b>Spring break weeks = very busy</b> — book in advance!'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-indoor','☔ #1 Rainy Day Pick!']],
-        '⚠️ Book day passes IN ADVANCE: kalahariresorts.com/pa'));
+        '⚠️ Book day passes IN ADVANCE: <a href="https://www.kalahariresorts.com/pa" target="_blank">kalahariresorts.com/pa</a>'));
 
 L.marker([41.0513, -75.3508], { icon: sm(POC,'⛷️') }).addTo(map)
     .bindTooltip('<b>Camelback Mountain Resort</b> — Aquatopia Waterpark (+ maybe skiing!)')
@@ -421,7 +428,7 @@ L.marker([41.0513, -75.3508], { icon: sm(POC,'⛷️') }).addTo(map)
          'Check current snow conditions: camelbackresort.com',
          'Good alternative if Kalahari is sold out'],
         [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-indoor','☔ Rainy Day'],['tag-soccer','⚽ Active sports']],
-        '🌐 camelbackresort.com'));
+        '🌐 <a href="https://www.camelbackresort.com/" target="_blank">camelbackresort.com</a>'));
 
 L.marker([40.6887, -75.2109], { icon: sm(POC,'🖍️') }).addTo(map)
     .bindTooltip('<b>Crayola Experience</b> — Easton PA')
@@ -432,7 +439,7 @@ L.marker([40.6887, -75.2109], { icon: sm(POC,'🖍️') }).addTo(map)
          'Perfect half-day for Ella (11) — budget 2–3 hours',
          'Book tickets online in advance'],
         [['tag-cheer','📣 Ella\'s Pick!'],['tag-family','👨‍👩‍👧‍👦 Family fun']],
-        '🎟️ Book at crayolaexperience.com/easton'));
+        '🎟️ Book at <a href="https://www.crayolaexperience.com/easton" target="_blank">crayolaexperience.com/easton</a>'));
 
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -582,9 +589,9 @@ L.marker([40.6251, -75.3707], { icon: sm(PHI,'🏭') }).addTo(map)
 // ══════════════════════════════════════════════════════════════════════════════
 
 L.marker([40.0079, -75.2904], { icon: pinIcon(PHI,'🏠',44) }).addTo(map)
-    .bindTooltip('<b>Ardmore, PA</b><br>Home Base Philadelphia Main Line · Thu 2 Apr+', {direction:'top'})
+    .bindTooltip('<b>Ardmore, PA</b><br>Home Base Philadelphia Main Line · Thu 2 – Fri 3 Apr', {direction:'top'})
     .bindPopup(popup(PHI,'🏠','Ardmore, PA — Philadelphia Main Line',
-        'Thu 2 April onwards',
+        'Thu 2 April – Fri 3 April (1 night)',
         ['Charming walkable Main Line suburb with shops & restaurants',
          '<b>20 min drive</b> to central Philadelphia',
          '<b>20 min drive</b> to Subaru Park (Philadelphia Union)',
@@ -602,8 +609,8 @@ L.marker([39.8312, -75.3762], { icon: sm(RED,'⚽') }).addTo(map)
          'MLS regular season in full swing by April',
          'Only ~20 min from Ardmore via I-476 / I-95 South',
          'Arrive 30–45 min early for the full pre-match experience'],
-        [['tag-soccer','⚽ ETHAN\'S TOP HIGHLIGHT!'],['tag-family','👨‍👩‍👧‍👦 Great for all']],
-        '🎟️ philadelphiaunion.com or SeatGeek (MLS official partner) — Chester, PA'));
+        [['tag-soccer','⚽ SAM\'S TOP HIGHLIGHT!'],['tag-family','👨‍👩‍👧‍👦 Great for all']],
+        '🎟️ <a href="https://www.philadelphiaunion.com/" target="_blank">philadelphiaunion.com</a> or SeatGeek (MLS official partner) — Chester, PA'));
 
 L.marker([39.9496, -75.1503], { icon: sm(PHI,'🔔') }).addTo(map)
     .bindTooltip('<b>Liberty Bell & Independence Hall</b> — FREE')
@@ -648,19 +655,65 @@ L.marker([39.9696, -75.1714], { icon: sm(PHI,'🏚️') }).addTo(map)
          'Self-guided audio tour — allow 1.5–2 hours',
          'Both teens typically love this (spooky + historic!)'],
         [['tag-soccer','⚽ Sam\'s pick'],['tag-cheer','📣 Ella will love the mystery!']],
-        '🎟️ easternstate.org — book in advance'));
+        '🎟️ <a href="https://www.easternstate.org/" target="_blank">easternstate.org</a> — book in advance'));
 
 L.marker([40.0907, -75.3849], { icon: sm(PHI,'🛍️') }).addTo(map)
-    .bindTooltip('<b>King of Prussia Mall</b> — One of the USA\'s largest malls!')
+    .bindTooltip('<b>King of Prussia Mall</b> — One of the USA\'s largest malls + Netflix House!')
     .bindPopup(popup(PHI,'🛍️','King of Prussia Mall',
-        '~15 min from Ardmore — great for a shopping day',
+        'Fri 3 – Sat 4 April — your KOP base is right here!',
         ['One of the largest malls in the United States — 400+ stores',
+         '🎬 <b>Netflix House</b> is INSIDE the mall — see separate marker!',
          'Nike, Adidas, and all major sports brands for Sam ⚽',
          'Cheer & dancewear shops perfect for Ella 📣',
-         'Food court plus sit-down restaurants',
-         'Great for a rainy afternoon'],
+         'Food court plus sit-down restaurants'],
         [['tag-soccer','⚽ Sports stores for Sam'],['tag-cheer','📣 Shopping for Ella'],['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-indoor','☔ Rainy Day']],
+        '🌐 <a href="https://www.simon.com/mall/king-of-prussia" target="_blank">simon.com/mall/king-of-prussia</a>'));
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// DRIVE ROUTE 3: Ardmore → King of Prussia
+// ══════════════════════════════════════════════════════════════════════════════
+const route3 = [
+    [40.0079, -75.2904],
+    [40.0350, -75.3100],
+    [40.0620, -75.3480],
+    [40.0800, -75.3680],
+    [40.0907, -75.3849],
+];
+L.polyline(route3, { color: PHI, weight: 4, opacity: 0.65, dashArray: '8 5' })
+    .addTo(map)
+    .bindTooltip('Ardmore → King of Prussia: ~10 miles, ~15 min<br>US-30 West → I-476 North', { sticky: true });
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// KING OF PRUSSIA MARKERS
+// ══════════════════════════════════════════════════════════════════════════════
+
+L.marker([40.0979, -75.3716], { icon: pinIcon(PHI,'🏠',44) }).addTo(map)
+    .bindTooltip('<b>King of Prussia, PA</b><br>Home Base KOP · Fri 3 – Sat 4 Apr', {direction:'top'})
+    .bindPopup(popup(PHI,'🏠','King of Prussia, PA',
+        'Fri 3 April – Sat 4 April (1 night)',
+        ['Final stop of the trip — just 15 min from Ardmore',
+         '<b>5 min:</b> King of Prussia Mall — one of the largest in the USA',
+         '<b>5 min:</b> Netflix House (inside KOP Mall)',
+         '<b>20 min:</b> Valley Forge National Historical Park',
+         'Easy I-76 access for airport or onward travel'],
+        [['tag-family','👨‍👩‍👧‍👦 KOP Base']],
         null));
+
+L.marker([40.0888, -75.3870], { icon: sm('#e50914','🎬') }).addTo(map)
+    .bindTooltip('<b>Netflix House — KOP Mall</b> 🎬 Interactive Netflix experiences!')
+    .bindPopup(popup('#e50914','🎬','Netflix House — King of Prussia Mall',
+        'Fri 3 – Sat 4 April — inside KOP Mall!',
+        ['⭐ <b>Immersive, walk-through Netflix show experiences</b>',
+         '🎭 <b>Stranger Things</b> — enter the Upside Down',
+         '🦑 <b>Squid Game</b> — play the games (safely!)',
+         '🕷 <b>Wednesday</b> — Nevermore Academy experience',
+         '🗼 <b>Emily in Paris</b> — Parisian photo moments',
+         'Merchandise shop, themed café & food options',
+         'Perfect for <b>BOTH Sam & Ella</b> — totally unique!'],
+        [['tag-family','👨‍👩‍👧‍👦 Whole Family'],['tag-cheer','📣 Ella\'s HIGHLIGHT!'],['tag-soccer','⚽ Sam too!'],['tag-indoor','☔ Indoor attraction']],
+        '🎟️ <a href="https://www.netflix.com/house" target="_blank">netflix.com/house</a> — Book tickets in advance!'));
 
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -675,9 +728,11 @@ legend.onAdd = function() {
         font-family:'Segoe UI',sans-serif; font-size:0.78em; min-width:195px;
     ">
         <div style="font-weight:700; margin-bottom:9px; font-size:0.9em; color:#111;">🗺️ Family Trip Overview</div>
-        <div style="margin-bottom:5px;"><span style="color:#3b82f6; font-size:1.2em">●</span> <b>NYC</b> — 19–23 March</div>
-        <div style="margin-bottom:5px;"><span style="color:#16a34a; font-size:1.2em">●</span> <b>Poconos</b> — 23 Mar – 2 Apr</div>
-        <div style="margin-bottom:10px;"><span style="color:#ea580c; font-size:1.2em">●</span> <b>Ardmore / Philly</b> — 2 Apr +</div>
+        <div style="margin-bottom:5px;"><span style="color:#3b82f6; font-size:1.2em">●</span> <b>NYC</b> — 26–29 March</div>
+        <div style="margin-bottom:5px;"><span style="color:#16a34a; font-size:1.2em">●</span> <b>Poconos</b> — 29 Mar – 2 Apr</div>
+        <div style="margin-bottom:5px;"><span style="color:#ea580c; font-size:1.2em">●</span> <b>Ardmore / Philly</b> — 2–3 Apr</div>
+        <div style="margin-bottom:10px;"><span style="color:#ea580c; font-size:1.2em">●</span> <b>King of Prussia</b> — 3–4 Apr</div>
+        <div style="margin-bottom:10px;"><span style="color:#e50914; font-size:1.2em">●</span> <b>Netflix House</b> — KOP Mall</div>
         <div style="border-top:1px solid #eee; padding-top:9px; color:#555; line-height:1.7;">
             <div>⚽ = Great for Sam (17)</div>
             <div>📣 = Great for Ella (11)</div>
